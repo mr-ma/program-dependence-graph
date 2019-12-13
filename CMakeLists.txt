@@ -8,7 +8,8 @@ list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake)
 list(APPEND CMAKE_MODULE_PATH "${LLVM_CMAKE_DIR}")
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
-
+#set(CMAKE_CXX_STANDARD 17)
+#set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(INSTALL_CONFIGDIR ${CMAKE_INSTALL_LIBDIR}/cmake/PDG)
 add_definitions(${LLVM_DEFINITIONS})
 
@@ -30,6 +31,8 @@ add_library(pdg MODULE
         lib/Debug/PDGPrinter.cpp
         lib/Debug/CallSiteConnections.cpp
         lib/Debug/SVFGTraversal.cpp
+	#lib/Debug/SVFCSV.cpp
+	lib/Debug/PDGCSV.cpp
 #        lib/Debug/DGReachingDefinitions.cpp
 )
 
@@ -51,9 +54,9 @@ if ($ENV{CLION_IDE})
     include_directories("/usr/local/include/llvm-c/")
 endif ()
 
-target_compile_features(pdg PRIVATE cxx_range_for cxx_auto_type cxx_std_14)
-target_compile_options(pdg PRIVATE -fno-rtti -g)
-
+target_compile_features(pdg PRIVATE cxx_range_for cxx_auto_type cxx_std_17)
+target_compile_options(pdg PRIVATE -std=c++17 -fno-rtti -g)
+target_link_libraries(pdg PRIVATE stdc++fs) 
 install(TARGETS pdg
         EXPORT pdgTargets
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
