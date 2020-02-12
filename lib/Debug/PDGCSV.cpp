@@ -3,7 +3,7 @@
 #include "SVF/MemoryModel/PointerAnalysis.h"
 #include "SVF/Util/SVFModule.h"
 #include "SVF/WPA/Andersen.h"
-#include "PDG/Passes/PDGBuildPasses.h"
+#include "Passes/PDGBuildPasses.h"
 #include "PDG/PDG.h"
 #include "PDG/PDGNode.h"
 #include "PDG/PDGLLVMNode.h"
