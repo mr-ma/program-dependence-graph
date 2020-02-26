@@ -28,8 +28,8 @@ add_library(pdg MODULE
         lib/PDG/SVFGIndirectCallSiteResults.cpp
 #        lib/PDG/DGDefUseAnalysisResults.cpp
         lib/Passes/PDGBuildPasses.cpp
-        lib/Debug/PDGPrinter.cpp
-        lib/Debug/CallSiteConnections.cpp
+	#lib/Debug/PDGPrinter.cpp
+	#lib/Debug/CallSiteConnections.cpp
         lib/Debug/SVFGTraversal.cpp
 	#lib/Debug/SVFCSV.cpp
 	lib/Debug/PDGCSV.cpp
